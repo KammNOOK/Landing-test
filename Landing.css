@@ -608,12 +608,12 @@ h3{
 .name{
   margin:18px 0 6px;
   font-size:1.35rem;
-  font-weight:600;
-  color:#f2f6fa;
+  font-weight:300;
+  color:#D7D3CE;
 }
 .bio{
   margin:0 0 14px;
-  color:#b9c2cb;
+  color:rgb(158, 158, 158);
   line-height:1.7;
   max-width:36ch;
 }
@@ -1081,3 +1081,534 @@ h3{
   .footer-grid{ grid-template-columns:1fr; }
   .contact-actions{ width:100%; justify-content:flex-start; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   RESPONSIVE FIX PACK (add at end)
+   ========================= */
+
+/* 0) Safer global media styles */
+img, video, svg { max-width: 100%; height: auto; display: block; }
+/* Undo the global 130px width so images can scale */
+img { width: auto; }
+/* Keep only the logo at a fixed-ish size */
+.others-bar img { width: 130px; height: auto; margin-top: 0; margin-left: 0; }
+
+/* 1) Header & top nav */
+header {
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 12px;
+  height: auto;
+  text-align: center;
+  flex-wrap: wrap;
+}
+header a { word-break: break-word; }
+
+/* Make the top menu wrap nicely and avoid absolute button */
+.others-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #1a2431;
+}
+.others-bar a { font-size: 14px; }
+.others-bar button {
+  position: static;              /* <- remove absolute */
+  margin: 0 0 0 auto;            /* push to the right on wide screens */
+  padding: 10px 16px;
+  border-radius: 999px;
+}
+@media (max-width: 900px){
+  .others-bar { justify-content: center; }
+  .others-bar button { margin: 0; order: 3; }
+}
+
+/* 2) Hero: huge fixed paddings -> fluid & centered */
+#first{
+  font-size: clamp(2rem, 5vw, 4.2rem);
+  line-height: 1.15;
+  padding: 0;
+  margin: 24px auto 8px;
+  text-align: center;
+}
+.topmain{
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  color: #D7D3CE;
+  margin: 0 auto 24px;
+  max-width: 680px;
+  text-align: center;
+  padding: 0 16px;
+}
+/* Wrap the hero block to a container feel */
+.testi-wrap-top{
+  padding: 24px 16px;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+/* 3) General typography & paragraphs: strip giant margins */
+p{
+  margin: 0 16px 12px;
+  max-width: 72ch;
+}
+
+/* 4) “About” sections: remove floats, use real grid */
+.about-section,
+.about-section3 {
+  padding: 60px 16px;
+}
+.about-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 32px;
+}
+.about-left,
+.about-right,
+.about-right2 { max-width: 100%; }
+
+.about-title,
+.about-title3{
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin: 0 0 12px;
+  padding: 0;
+}
+.about-label{ padding-left: 0; }
+
+.about-text,
+.about-text2,
+.about-text3{
+  margin: 0;
+  padding: 0;
+  max-width: 75ch;
+}
+
+/* Logos block: turn into a responsive grid */
+.about-right2{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+  gap: 14px;
+  padding-right: 0;
+}
+.about-right2 img{ width: 100%; height: auto; }
+
+/* Stack columns on tablets/phones */
+@media (max-width: 1024px){
+  .about-container{ flex-direction: column; align-items: flex-start; }
+}
+
+/* 5) The three dark boxes: let them wrap and shrink */
+.boxes{
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0 16px;
+  margin-top: 28px;
+}
+.box{
+  width: clamp(260px, 48%, 430px);
+  padding: 28px;
+  height: auto;
+}
+
+/* 6) Services list: 3→2→1 columns */
+.services-section{ padding: 20px 16px 80px; }
+.services-container{
+  max-width: 1200px;
+  gap: 28px;
+}
+@media (max-width: 1100px){
+  .services-container{ gap: 24px; }
+}
+@media (max-width: 900px){
+  .services-container{ flex-wrap: wrap; }
+  .services-col{ flex: 1 1 320px; }
+}
+
+/* 7) Testimonial layout: already responsive — tighten text on small */
+@media (max-width: 640px){
+  .testi-head{ font-size: clamp(26px, 6vw, 36px); }
+  .testi-body{ margin-left: 0; padding: 0 16px; }
+  .testi-stars, .testi-sign{ margin-left: 16px; }
+}
+
+/* 8) Case studies grid: already stacks at 900px — add spacing */
+.case-studies{ padding: 0; }
+.case-grid{ gap: 0; }
+@media (max-width: 900px){
+  .case-studies{ padding: 0 0 24px; }
+  .panel-inner{ padding: 28px 16px; }
+}
+
+/* 9) News section: minor padding on mobile (you already handled grid) */
+@media (max-width: 640px){
+  .news{ padding: 48px 16px 20px; }
+}
+
+/* 10) Footer: compress & wrap brand/social neatly on small */
+.footer-grid{
+  padding: 40px 16px 20px;
+  gap: 28px;
+}
+.brand{ margin-bottom: 20px; }
+.social a{ width: 28px; height: 28px; }
+
+@media (max-width: 560px){
+  .contact-bar{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+/* 11) Misc headings */
+.overview{
+  font-size: clamp(1.8rem, 4.6vw, 2.8rem);
+  padding: 8px 16px 16px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 12) Clean up extra-wide fixed paddings from earlier rules */
+h2{
+  padding-right: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* 13) Mobile-first tweaks for hero image and spacer */
+#group{
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 0 16px;
+}
+#moving{ height: 20px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- CASE STUDIES SIDE-BY-SIDE LAYOUT --- */
+
+/* Grid: always two columns when space allows */
+.case-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* text + image side by side */
+  gap: 0;                          /* remove gaps between */
+  overflow: hidden;
+}
+
+/* Make sure items shrink properly */
+.case-grid > *{ min-width: 0; }
+
+/* Panel (text box) */
+.case.panel{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.panel-inner{
+  width: 100%;
+  padding: 40px 32px;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Image cell */
+.case.image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* On smaller screens: stack them full width */
+@media (max-width: 1024px){
+  .case-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* --- Fix case-studies spacing + overflow --- */
+
+/* 0) Kill legacy image margins that cause the side gap/scroll */
+.case-studies img { margin: 0 !important; }
+
+/* 1) Make the case-studies band flush (no top padding) */
+.case-studies { padding-block: 0 !important; }
+.case-studies > .container { padding-block: 0 !important; }
+
+/* 2) If you want the images + text to hit the edges (no gutters):
+      make this section full-bleed by overriding the container width */
+.case-studies > .container {
+  width: 100% !important;       /* remove side gutters for this band only */
+  margin: 0 !important;
+}
+
+/* 3) Ensure nothing inside can force horizontal scroll */
+.case-grid,
+.case-grid > * { min-width: 0; overflow: hidden; }
+
+/* 4) Keep the text/image side-by-side on wide; stack on tablet */
+.case-grid { grid-template-columns: 1fr 1fr; gap: 0; }
+@media (max-width: 1024px){
+  .case-grid { grid-template-columns: 1fr; }
+}
+
+/* 5) Safe panel padding that won't push width */
+.panel-inner {
+  padding: clamp(20px, 4vw, 56px);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* 6) Image cell: never exceed its track */
+.case.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 7) Last-resort guard */
+html, body { overflow-x: hidden; }
+
+
+
+
+/* ============================
+   CASE STUDIES — side-by-side, images dominate, mobile order
+   ============================ */
+
+/* base safety */
+.case-studies img { margin: 0 !important; }
+.case-grid, .case-grid > * { min-width: 0; }
+.case.image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Map the 4 items to logical areas using nth-child 
+   (1=text, 2=image, 3=image, 4=text in your HTML) */
+.case-grid > :nth-child(1){ grid-area: t1; } /* panel--navy */
+.case-grid > :nth-child(2){ grid-area: i1; } /* image 1 */
+.case-grid > :nth-child(3){ grid-area: i2; } /* image 2 */
+.case-grid > :nth-child(4){ grid-area: t2; } /* panel--brown */
+
+/* Desktop & “half view” (two rows, two columns; images opposite text) */
+@media (min-width: 900px){
+  .case-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;           /* two equal tracks */
+    grid-template-areas:
+      "t1 i1"
+      "i2 t2";                                /* image left on row 2 */
+    gap: 0;
+  }
+
+  /* Make images feel wider by constraining text measure */
+  .panel-inner{
+    padding: clamp(20px, 3vw, 64px);
+    max-width: 60ch;                          /* text column visually “narrower” */
+    margin-inline: auto;                       /* centers text block inside its track */
+    box-sizing: border-box;
+  }
+}
+
+/* Mobile: stack them exactly as text → image → text → image */
+@media (max-width: 899px){
+  .case-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "t1"
+      "i1"
+      "t2"
+      "i2";
+    gap: 0;
+  }
+}
+
+/* Optional: give images a touch more dominance at large desktop */
+@media (min-width: 1200px){
+  .panel-inner{ max-width: 52ch; }            /* slightly tighter text */
+}
+
+
+
+
+
+
+/* ============================
+   NEWS / BLOG — full width stack
+   ============================ */
+
+/* Force all posts to span full width */
+.news-grid{
+  display: grid;
+  grid-template-columns: 1fr !important;  /* single column */
+  gap: 40px;                              /* spacing between posts */
+}
+
+/* Ensure each post stretches full */
+.news-grid .post{
+  width: 100%;
+}
+
+/* Images still respect aspect ratio */
+.news-grid .post .thumb{
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+.news-grid .post .thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+
+
+
+
+/* Give the boxes breathing space */
+.box{
+  padding: 40px 32px;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+/* Optional: shadow for card look */
+.box{
+  background: #1a1d1f;                  /* dark background */
+  box-shadow: 0 4px 20px rgba(0,0,0,.25);
+}
+
+/* ============================
+   FOOTER LOGO (logo 2.avif)
+   ============================ */
+
+.footer-grid .brand img{
+  width: 50% !important;   /* make it half the current size */
+  height: auto;            /* keep aspect ratio */
+  display: block;
+  margin-left: 0;          /* align closer to the left edge */
+  margin-right: auto;      /* push away from the right */
+}
+
+
+
+
+
+
+
+
+
+
+/* === Hero text side by side on desktop, stacked on mobile === */
+.testi-wrap-top {
+  display: flex;                /* put h1 and p side by side */
+  justify-content: center;      /* center horizontally */
+  align-items: center;          /* align vertically */
+  gap: 40px;                    /* space between them */
+  max-width: 1200px;            /* optional: contain width */
+  margin: 0 auto;               /* center container */
+  padding: 60px 20px;
+  flex-wrap: wrap;              /* allow wrapping when space is tight */
+}
+
+.testi-wrap-top h1 {
+  flex: 1;                      /* take equal space */
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #D7D3CE;
+  line-height: 1.2;
+  margin: 0;
+  text-align: left;
+}
+
+.testi-wrap-top p {
+  flex: 1;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #D7D3CE;
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+  max-width: 600px;
+}
+
+/* ✅ On smaller screens stack vertically */
+@media (max-width: 900px) {
+  .testi-wrap-top {
+    flex-direction: column;     /* stack */
+    text-align: center;
+  }
+  .testi-wrap-top h1,
+  .testi-wrap-top p {
+    text-align: center;
+    max-width: 100%;
+  }
+}
+
+/* ✅ Force group.avif to always span full width */
+#group {
+  width: 100% !important;     /* stretch across viewport */
+  max-width: 100% !important; /* remove 1200px cap */
+  height: auto;               /* keep proportions */
+  margin: 0 !important;       /* remove centering */
+  padding: 0 !important;      /* remove side gaps */
+  display: block;
+}
+
+
+
