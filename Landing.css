@@ -1740,6 +1740,12 @@ html, body { overflow-x: hidden; }
 }
 
 
+#question2,
+#question3 {
+  text-align: center;      /* centers the text */
+  margin-left: auto;       /* optional: auto margins for block centering */
+  margin-right: auto;
+}
 
 
 
