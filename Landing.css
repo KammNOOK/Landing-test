@@ -1666,6 +1666,79 @@ html, body { overflow-x: hidden; }
   height: auto;
 }
 
+/* Target mobile devices (adjust breakpoint as needed) */
+@media (max-width: 768px) {
+
+  /* Team section images */
+  .team .photo img {
+    display: block;
+    margin: 0 auto;   /* centers the image horizontally */
+    max-width: 80%;   /* optional: scale down on small screens */
+    height: auto;
+  }
+
+  /* Case studies images */
+  .case-studies .case.image img {
+    display: block;
+    margin: 0 auto;   /* centers the image horizontally */
+    max-width: 100%;   /* optional: scale down on small screens */
+    height: auto;
+  }
+
+  /* Optional: center text below images */
+  .case-studies .case.image {
+    text-align: center;
+  }
+}
+
+/* Mobile view centering for News section images */
+@media (max-width: 768px) {
+
+  /* Center all blog post thumbnails */
+  .news .news-grid .post .thumb img {
+    display: block;
+    margin: 0 auto;      /* horizontally center */
+    max-width: 90%;      /* optional: scale down a bit on small screens */
+    height: auto;        /* maintain aspect ratio */
+  }
+
+  /* Optional: make the badge centered under the image */
+  .news .news-grid .post .thumb .badge {
+    display: block;
+    text-align: center;
+    margin: 0.5rem auto 0;
+  }
+}
+
+
+
+/* Ensure the image container uses flex for centering */
+.testi-right {
+  position: relative;
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center;     /* centers vertically if container has height */
+  flex-direction: column;
+}
+
+/* Keep image responsive */
+.testi-right img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hide overlay-card on mobile */
+@media (max-width: 468px) {
+  .testi-right {
+    justify-content: center;
+  }
+
+  .testi-right .overlay-card {
+    display: none;
+  }
+}
+
 
 
 
